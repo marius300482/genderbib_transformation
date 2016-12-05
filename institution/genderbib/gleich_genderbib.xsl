@@ -78,7 +78,7 @@
 
 						<!--collection -->
 						<collection>
-							<xsl:text>genderbib</xsl:text>
+							<xsl:text>GReTA</xsl:text>
 						</collection>
 
 						<!--isil -->
