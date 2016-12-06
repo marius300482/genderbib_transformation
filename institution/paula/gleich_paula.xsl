@@ -63,7 +63,7 @@
 					<xsl:text>Genderbibliothek/Information/Dokumentation am Zentrum für transdisziplinäre Geschlechterstudien an der Humboldt-Universität zu Berlin</xsl:text>
 				</institutionsFullname>
 			
-			<collection><xsl:text>Paula Bibliografie</xsl:text></collection>
+			<collection><xsl:text>PAULA Bibliografie</xsl:text></collection>
 			
 			<isil><xsl:text>DE-B1542</xsl:text></isil>
 			
@@ -169,7 +169,7 @@
 	</xsl:template>
 	
 	
-	<xsl:template match="systematik/systemstelle/unterpunkt">
+<xsl:template match="systematik/systemstelle/unterpunkt">
 		
 	<xsl:element name="record">
 		<xsl:attribute name="id" select="translate(@id,'1234567890abcdefghijklmnopqrstuvwxyzäüöABCDEFGHJKLMNOPQRSTUVWYZ -_:.,!?/()', '1234567890abcdefghijklmnopqrstuvwxyzauoABCDEFGHJKLMNOPQRSTUVWYZ')"></xsl:attribute>
@@ -215,6 +215,10 @@
 			<xsl:element name="hierarchyFields">
 				
 				<xsl:variable name="idtitle" select="translate(../@regex,'1234567890abcdefghijklmnopqrstuvwxyzäüöABCDEFGHJKLMNOPQRSTUVWYZ -_:.,!?/()', '1234567890abcdefghijklmnopqrstuvwxyzauoABCDEFGHJKLMNOPQRSTUVWYZ')"></xsl:variable>
+				
+				<hierarchy_top_id>0Bibliografpaulabiblio</hierarchy_top_id>
+           		 	<hierarchy_top_title>Bibliografie “Frauen und Geschlechterverhältnisse in der DDR und in den neuen Bundesländern</hierarchy_top_title>
+				
 				
 				<hierarchy_top_id>
 					<xsl:value-of select="../@id"/>
@@ -368,7 +372,7 @@
 							<xsl:text>Genderbibliothek/Information/Dokumentation am Zentrum für transdisziplinäre Geschlechterstudien an der Humboldt-Universität zu Berlin</xsl:text>
 							</institutionsFullname>
 			
-<!--collection-->				<collection><xsl:text>Paula Bibliografie</xsl:text></collection>
+<!--collection-->				<collection><xsl:text>PAULA Bibliografie</xsl:text></collection>
 	
 <!--isil-->					<isil><xsl:text>DE-B1542</xsl:text></isil>
 	
