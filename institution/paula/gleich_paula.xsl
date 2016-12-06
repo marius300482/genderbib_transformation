@@ -124,7 +124,7 @@
 					<xsl:text>Genderbibliothek/Information/Dokumentation am Zentrum für transdisziplinäre Geschlechterstudien an der Humboldt-Universität zu Berlin</xsl:text>
 			</institutionsFullname>
 			
-			<collection><xsl:text>Paula Bibliografie</xsl:text></collection>
+			<collection><xsl:text>PAULA Bibliografie</xsl:text></collection>
 			
 			<isil><xsl:text>DE-B1542</xsl:text></isil>
 			
