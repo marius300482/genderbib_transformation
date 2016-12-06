@@ -220,10 +220,9 @@
            		 	<hierarchy_top_title>Bibliografie “Frauen und Geschlechterverhältnisse in der DDR und in den neuen Bundesländern</hierarchy_top_title>
 				
 				
-				<hierarchy_top_id>
+				<!-- <hierarchy_top_id>
 					<xsl:value-of select="../@id"/>
 					<xsl:value-of select="substring($idtitle,1,10)"/>
-					<!--<xsl:value-of select="substring(translate(../@regex,'1234567890abcdefghijklmnopqrstuvwxyzäüöABCDEFGHJKLMNOPQRSTUVWYZ -_:.,!?/()', '1234567890abcdefghijklmnopqrstuvwxyzauoABCDEFGHJKLMNOPQRSTUVWYZ'),1,20)"></xsl:value-of>-->
 					<xsl:text>paulabiblio</xsl:text>
 					</hierarchy_top_id>
 				<hierarchy_top_title>
@@ -236,7 +235,7 @@
 					</hierarchy_top_id>
 				<hierarchy_top_title>
 					<xsl:value-of select="."/>
-					</hierarchy_top_title>
+					</hierarchy_top_title> -->
 				
 				<hierarchy_parent_id>
 					<xsl:value-of select="../@id"/>
