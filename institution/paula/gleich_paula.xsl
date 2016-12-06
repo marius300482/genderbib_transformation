@@ -539,13 +539,18 @@
 
 	<xsl:element name="functions">
 		<xsl:element name="hierarchyFields">
-		<hierarchy_top_id>
+		
+		<hierarchy_top_id>0Bibliografpaulabiblio</hierarchy_top_id>
+        <hierarchy_top_title>Bibliografie “Frauen und Geschlechterverhältnisse in der DDR und in den neuen Bundesländern</hierarchy_top_title>
+				
+		
+		<!-- <hierarchy_top_id>
 			<xsl:value-of select="substring(translate(Klassifikation,'1234567890abcdefghijklmnopqrstuvwxyzäüöABCDEFGHJKLMNOPQRSTUVWYZ -_:.,!?/()', '1234567890abcdefghijklmnopqrstuvwxyzauoABCDEFGHJKLMNOPQRSTUVWYZ'),1,11)"/>
 			<xsl:text>paulabiblio</xsl:text>
 			</hierarchy_top_id>
 		<hierarchy_top_title>
 			<xsl:value-of select="Klassifikation"/>
-			</hierarchy_top_title>
+			</hierarchy_top_title> -->
 				
 		<hierarchy_parent_id>
 			<xsl:value-of select="substring(translate(Untergruppe,'1234567890abcdefghijklmnopqrstuvwxyzäüöABCDEFGHJKLMNOPQRSTUVWYZ -_:.,!?/()', '1234567890abcdefghijklmnopqrstuvwxyzauoABCDEFGHJKLMNOPQRSTUVWYZ'),1,10)"/>
