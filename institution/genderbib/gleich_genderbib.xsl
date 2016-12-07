@@ -98,12 +98,12 @@
 								<xsl:text>:zdbid</xsl:text>
 
 								<xsl:text> displayPublishDate:</xsl:text>
-								<xsl:value-of select="J_"></xsl:value-of>
+								<xsl:value-of select="J_x046x_"></xsl:value-of>
 								<xsl:value-of select="Jahr"></xsl:value-of>
 								<xsl:text>:displayPublishDate</xsl:text>
 
 								<xsl:text> publishDate:</xsl:text>
-								<xsl:value-of select="J_"></xsl:value-of>
+								<xsl:value-of select="J_x046x_"></xsl:value-of>
 								<!--<xsl:value-of select="Jahr"></xsl:value-of> -->
 
 								<xsl:variable name="year" select="Jahr" />
@@ -714,9 +714,9 @@
 
 						<!--DisplayDate -->
 						<xsl:choose>
-							<xsl:when test="J_">
+							<xsl:when test="J_x046x_">
 								<displayPublishDate>
-									<xsl:value-of select="J_[1]" />
+									<xsl:value-of select="J_x046x_[1]" />
 								</displayPublishDate>
 							</xsl:when>
 							<xsl:otherwise>
@@ -732,7 +732,7 @@
 							</xsl:when>
 							<xsl:otherwise>
 								<publishDate>
-									<xsl:value-of select="J_[1]" />
+									<xsl:value-of select="J_x046x_[1]" />
 								</publishDate>
 							</xsl:otherwise>
 						</xsl:choose>
@@ -955,19 +955,19 @@
 
 						<!--displayDate -->
 						<displayPublishDate>
-							<xsl:value-of select="J_[1]" />
+							<xsl:value-of select="J_x046x_[1]" />
 
-							<xsl:if test="J_[1]!=J_[last()]">
+							<xsl:if test="J_x046x_[1]!=J_x046x_[last()]">
 								<xsl:text> - </xsl:text>
-								<xsl:value-of select="J_[last()]" />
+								<xsl:value-of select="J_x046x_[last()]" />
 							</xsl:if>
 						</displayPublishDate>
 
 						<!--timeSpan Laufzeit / Publishdate -->
 
-						<xsl:if test="J_">
+						<xsl:if test="J_x046x_">
 							<publishDate>
-								<xsl:value-of select="J_[last()]" />
+								<xsl:value-of select="J_x046x_[last()]" />
 							</publishDate>
 						</xsl:if>
 
@@ -1089,21 +1089,21 @@
 
 						<!--displayDate /  Publishdate -->
 						<xsl:choose>
-							<xsl:when test="J_[2]">
+							<xsl:when test="J_x046x_[2]">
 								<displayPublishDate>
-									<xsl:value-of select="J_[1]" />
+									<xsl:value-of select="J_x046x_[1]" />
 									<xsl:text> - </xsl:text>
-									<xsl:value-of select="J_[last()]" />
+									<xsl:value-of select="J_x046x_[last()]" />
 								</displayPublishDate>
 							</xsl:when>
 							<xsl:otherwise>
 								<displayPublishDate>
-									<xsl:value-of select="J_[1]" />
+									<xsl:value-of select="J_x046x_[1]" />
 								</displayPublishDate>
 							</xsl:otherwise>
 						</xsl:choose>
 
-						<xsl:for-each select="J_">
+						<xsl:for-each select="J_x046x_">
 							<publishDate>
 								<xsl:value-of select="normalize-space(.)" />
 							</publishDate>
@@ -1300,12 +1300,12 @@
 
 						<!--displayDate -->
 						<xsl:choose>
-							<xsl:when test="J_">
+							<xsl:when test="J_x046x_">
 								<displayPublishDate>
-									<xsl:value-of select="J_" />
+									<xsl:value-of select="J_x046x_" />
 								</displayPublishDate>
 							</xsl:when>
-							<xsl:when test="not(J_)">
+							<xsl:when test="not(J_x046x_)">
 								<displayPublishDate>
 									<xsl:variable name="z-jahr1"
 										select="substring-after($z-ausgabe,'(')" />
@@ -1323,12 +1323,12 @@
 
 						<!--publishDate Jahresangabe -->
 						<xsl:choose>
-							<xsl:when test="J_">
+							<xsl:when test="J_x046x_">
 								<publishDate>
-									<xsl:value-of select="J_" />
+									<xsl:value-of select="J_x046x_" />
 								</publishDate>
 							</xsl:when>
-							<xsl:when test="not(J_)">
+							<xsl:when test="not(J_x046x_)">
 								<publishDate>
 									<xsl:variable name="z-jahr1"
 										select="substring-after($z-ausgabe,'(')" />
@@ -1454,7 +1454,7 @@
 								</is_hierarchy_title>
 
 								<hierarchy_sequence>
-									<xsl:value-of select="J_" />
+									<xsl:value-of select="J_x046x_" />
 								</hierarchy_sequence>
 							</hierarchyFields>
 						</functions>
