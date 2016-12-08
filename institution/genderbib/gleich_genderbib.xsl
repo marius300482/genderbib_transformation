@@ -25,8 +25,7 @@
 		<xsl:variable name="s_sachtitel"
 			select="translate(s_x046x__x032x_Sachtitel[1], translate(.,'0123456789', ''), '')" />
 		
-		<xsl:if test="(objektart[text()='Zeitschrift']) or (objektart[text()='Zeitschrift/Heftitel'])">
-		
+			<xsl:if test="objektart[text()!='NutzerIn']">
 		
 
 			<!--
@@ -58,11 +57,16 @@
 							<xsl:for-each select="//datensatz[id=$s_sachtitel]">
 
 								<xsl:text> editor:</xsl:text>
-								<xsl:value-of select="Hrsg_x046x_"></xsl:value-of>
+									<xsl:for-each select="Hrsg_x046x_">
+										<xsl:value-of select="." />
+										<xsl:if test="position() != last()">
+											<xsl:text>; </xsl:text>
+										</xsl:if>
+									</xsl:for-each>
 								<xsl:text>:editor</xsl:text>
 
 								<xsl:text> hrsg:</xsl:text>
-								<xsl:value-of select="Hrsg_x046x__Körperschaft"></xsl:value-of>
+									<xsl:value-of select="Hrsg_x046x__Körperschaft"/>
 								<xsl:text>:hrsg</xsl:text>
 
 								<xsl:text> contributor:</xsl:text>
@@ -1505,6 +1509,10 @@
 								</xsl:if>
 							</xsl:for-each>
 						</xsl:if>
+						
+						<connect>
+							<xsl:value-of select="$connect" />
+						</connect>
 
 						<xsl:apply-templates select="Hrsg_x046x_[1]" />
 
