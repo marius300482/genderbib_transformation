@@ -25,9 +25,12 @@
 		<xsl:variable name="s_sachtitel"
 			select="translate(s_x046x__x032x_Sachtitel[1], translate(.,'0123456789', ''), '')" />
 		
-		<xsl:if test="objektart[text()!='NutzerIn']">
+		<xsl:if test="(objektart[text()='Zeitschrift']) or (objektart[text()='Zeitschrift/Heftitel'])">
+		
+		
 
 			<!--
+			<xsl:if test="objektart[text()!='NutzerIn']">
 			<xsl:if test="objektart[text()='Artikel']"> 
 			<xsl:if test="(objektart[text()='Zeitschrift']) or (objektart[text()='Zeitschrift/Heftitel']) or (contains(objektart,'Einzeltitel'))">
 			<xsl:if test="objektart[text()='Online-Ressource']"> <xsl:if test="(objektart[text()='Zeitschrift']) 
@@ -1425,7 +1428,7 @@
 					<xsl:variable name="id_parent" select="//datensatz[s_x046x__x032x_Ausgabe=$reference]/id" />
 
 					<xsl:if test="s_x046x__x032x_Aufsatz">
-
+					
 						<functions>
 						
 							<hierarchyFields>
