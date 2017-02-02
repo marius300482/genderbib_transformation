@@ -11,7 +11,7 @@
 		entfernt um Speicherplatz zu sparen -->
 	<xsl:strip-space elements="*" />
 
-	<!--Der Hauptknoten -->
+<!--Der Hauptknoten -->
 	<xsl:template match="genderbib">
 		<xsl:element name="catalog">
 			<xsl:apply-templates select="//datensatz" />
@@ -70,38 +70,38 @@
 								<xsl:text>:hrsg</xsl:text>
 
 								<xsl:text> contributor:</xsl:text>
-								<xsl:value-of select="ÜbersetzerIn"></xsl:value-of>
+								<xsl:value-of select="ÜbersetzerIn" />
 								<xsl:text>:contributor</xsl:text>
 
 								<xsl:text> entity:</xsl:text>
-								<xsl:value-of select="Körperschaft"></xsl:value-of>
+								<xsl:value-of select="Körperschaft" />
 								<xsl:text>:entity</xsl:text>
 
 								<xsl:text> series:</xsl:text>
-								<xsl:value-of select="Reihentitel"></xsl:value-of>
+								<xsl:value-of select="Reihentitel" />
 								<xsl:text>:series</xsl:text>
 
 								<!--<xsl:text> edition:</xsl:text> <xsl:value-of select="Ausgabe"></xsl:value-of> 
 									<xsl:text>:edition</xsl:text> -->
 
 								<xsl:text> volume:</xsl:text>
-								<xsl:value-of select="Jg-"></xsl:value-of>
+								<xsl:value-of select="Jg-" />
 								<xsl:text>:volume</xsl:text>
 
 								<xsl:text> issue:</xsl:text>
-								<xsl:value-of select="H"></xsl:value-of>
+								<xsl:value-of select="H" />
 								<xsl:text>:issue</xsl:text>
 
 								<xsl:text> isbn:</xsl:text>
-								<xsl:value-of select="ISBN"></xsl:value-of>
+								<xsl:value-of select="ISBN" />
 								<xsl:text>:isbn</xsl:text>
 
 								<xsl:text> issn:</xsl:text>
-								<xsl:value-of select="ISSN"></xsl:value-of>
+								<xsl:value-of select="ISSN" />
 								<xsl:text>:issn</xsl:text>
 
 								<xsl:text> zdbid:</xsl:text>
-								<xsl:value-of select="ZDB-ID"></xsl:value-of>
+								<xsl:value-of select="ZDB-ID" />
 								<xsl:text>:zdbid</xsl:text>
 
 								<xsl:text> displayPublishDate:</xsl:text>
@@ -626,7 +626,7 @@
 							<xsl:apply-templates select="Heft-Nr_" />
 
 						<!--volume Jahrgang -->
-							<xsl:apply-templates select="Jg_" />
+						<xsl:apply-templates select="Jg_x058x_" />
 
 					<!--OTHER -->
 
@@ -732,6 +732,7 @@
 								</displayPublishDate>
 							</xsl:otherwise>
 						</xsl:choose>
+			
 						<!--publishDate Jahresangabe -->
 						<xsl:choose>
 							<xsl:when test="Jahr[1]">
@@ -1306,51 +1307,55 @@
 						</xsl:choose>
 
 						<!--displayDate -->
-						<xsl:choose>
-							<xsl:when test="J_x046x_">
-								<displayPublishDate>
-									<xsl:value-of select="J_x046x_" />
-								</displayPublishDate>
-							</xsl:when>
-							<xsl:when test="not(J_x046x_)">
-								<displayPublishDate>
-									<xsl:variable name="z-jahr1"
-										select="substring-after($z-ausgabe,'(')" />
-									<xsl:choose>
-										<xsl:when test="$z-jahr1">
-											<xsl:value-of select="substring-before($z-jahr1,')')" />
-										</xsl:when>
-										<xsl:otherwise>
-											<xsl:value-of select="Ausgabe"></xsl:value-of>
-										</xsl:otherwise>
-									</xsl:choose>
-								</displayPublishDate>
-							</xsl:when>
-						</xsl:choose>
-
+						<displayPublishDate>
+							<xsl:choose>
+								<xsl:when test="J_x046x_">								
+										<xsl:value-of select="J_x046x_" />
+								</xsl:when>
+								<xsl:when test="not(J_x046x_)">
+										<xsl:variable name="z-jahr1" select="substring-after($z-ausgabe,'(')" />
+										<xsl:choose>
+											<xsl:when test="$z-jahr1">
+												<xsl:value-of select="substring-before($z-jahr1,')')" />
+											</xsl:when>
+											<xsl:otherwise>
+												<xsl:value-of select="Ausgabe"></xsl:value-of>
+											</xsl:otherwise>
+										</xsl:choose>
+								</xsl:when>
+							</xsl:choose>
+						</displayPublishDate>
+						
+						
 						<!--publishDate Jahresangabe -->
-						<xsl:choose>
-							<xsl:when test="J_x046x_">
-								<publishDate>
-									<xsl:value-of select="J_x046x_" />
-								</publishDate>
-							</xsl:when>
-							<xsl:when test="not(J_x046x_)">
-								<publishDate>
-									<xsl:variable name="z-jahr1"
-										select="substring-after($z-ausgabe,'(')" />
-									<xsl:choose>
-										<xsl:when test="$z-jahr1">
-											<xsl:value-of select="substring-before($z-jahr1,')')" />
-										</xsl:when>
-										<xsl:otherwise>
-											<xsl:value-of select="Ausgabe"></xsl:value-of>
-										</xsl:otherwise>
-									</xsl:choose>
-								</publishDate>
-							</xsl:when>
-						</xsl:choose>
-
+						<publishDate>
+							<xsl:choose>
+								<xsl:when test="J_x046x_">
+										<xsl:value-of select="J_x046x_" />
+								</xsl:when>
+								<xsl:when test="contains(Ausgabe,'(')">
+									<xsl:variable name="z-jahr1" select="substring-after($z-ausgabe,'(')" />
+										<xsl:choose>
+											<xsl:when test="$z-jahr1">
+												<xsl:value-of select="substring-before($z-jahr1,')')" />
+											</xsl:when>
+											<xsl:otherwise>
+												<xsl:value-of select="Ausgabe"></xsl:value-of>
+											</xsl:otherwise>
+										</xsl:choose>
+								</xsl:when>
+								<xsl:when test="contains(Ausgabe,'/')">
+									<xsl:value-of select="normalize-space(substring-after(Ausgabe,'/'))" />
+								</xsl:when>
+								<xsl:when test="contains(Ausgabe,'.')">
+									<xsl:value-of select="normalize-space(substring-after(Ausgabe,'.'))" />
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:text>0000</xsl:text>
+								</xsl:otherwise>						
+							</xsl:choose>
+						</publishDate>
+							
 						<!--sourceInfo -->
 						<xsl:variable name="zdbid" select="ZDB-ID" />
 
@@ -1397,7 +1402,7 @@
 						<xsl:apply-templates select="Jg-[1]" />
 
 						<!--contentMatter Inhalt und Thema -->
-						<xsl:apply-templates select="Inhalt_x047x_Thema" />
+						<!-- <xsl:apply-templates select="Inhalt_x047x_Thema" /> -->
 
 					<!--OTHER -->
 
@@ -1509,10 +1514,6 @@
 								</xsl:if>
 							</xsl:for-each>
 						</xsl:if>
-						
-						<connect>
-							<xsl:value-of select="$connect" />
-						</connect>
 
 						<xsl:apply-templates select="Hrsg_x046x_[1]" />
 
